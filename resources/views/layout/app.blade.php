@@ -12,11 +12,12 @@
             <li><a href="{{route('home')}}">Home</a></li>
             <li><a href="{{route('packages')}}">Packages</a></li>
             <li><a href="{{route('collection')}}">Collection</a></li>
-            <li><a href="{{route('attendees')}}">Attendees</a></li>
+           
             @if (auth()->check())
-            <li><a href="{{route('logout.user')}}">Logout</a></li>
+             <li><a href="{{route('logout')}}">Logout</a></li>
             @else
-            <li><a href="{{route('login')}}">Login</a></li>
+             <li><a href="{{route('attendees')}}">Attendees</a></li>
+             <li><a href="{{route('login')}}">Login</a></li>
             @endif
         </ul>
     </header>

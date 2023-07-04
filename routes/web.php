@@ -1,8 +1,12 @@
 <?php
 
+
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
-use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +19,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'homePage'])->name('home');
+Route::get('/',[PageController::class,'homePage'])->name('home');
 
-Route::get('/collection', [PageController::class, 'collectionPage'])->middleware('auth')->name('collection');
+Route::get('/packages',[PageController::class,'packagesPage'])->middleware('auth')->name('packages');
+Route::get('/collection',[PageController::class,'collectionPage'])->middleware('auth')->name('collection');
 
-Route::get('/packages', [PageController::class, 'packagesPage'])->middleware('auth')->name('packages');
 
-Route::get('/login', [PageController::class, 'loginPage'])->name('login');
+Route::get('/login',[AuthController::class,'index'])->name('login');
 
-Route::get('/register', [PageController::class, 'registerPage'])->name('attendees');
 
-// User authentication
-
-Route::post('/login', [AuthController::class, 'loginUser'])->name('login.submit');
-Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logout.user');
-Route::post('/register', [AuthController::class, 'registerUser'])->name('attendees.submit');
+Route::post('/login',[AuthController::class,'login'])->name('login.submit');
+Route::get('/logout',[AuthController::class,'logout'])->middleware('auth')->name('logout');
+Route::get('/register',[AuthController::class,'attendees'])->name('attendees');
+Route::post('/register',[AuthController::class,'register'])->name('register');

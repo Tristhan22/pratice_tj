@@ -1,4 +1,4 @@
-@extends('template.html');
+@extends('layout.app');
 
 @section('title')
     Register
@@ -21,7 +21,7 @@
     </label>
     <input type="text" name="age" placeholder="Age">
     <label for="address">
-        @error('name')
+        @error('address')
             <span style="color:red">{{$message}}</span>
         @enderror
     </label>

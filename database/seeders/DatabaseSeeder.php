@@ -17,11 +17,13 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Administrator',
             'username' => 'admin',
+            'password' => 'admin',
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'Staff',
             'username' => 'staff',
+            'password' => 'staff',
         ]);
     }
 }

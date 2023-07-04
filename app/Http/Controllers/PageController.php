@@ -10,16 +10,8 @@ class PageController extends Controller
         return view('home');
     }
 
-    public function attendeesPage() {
-        return view('attendees');
-    }
-
     public function packagesPage() {
         return view('packages');
-    }
-
-    public function loginPage() {
-        return view('login');
     }
 
     public function collectionPage() {
